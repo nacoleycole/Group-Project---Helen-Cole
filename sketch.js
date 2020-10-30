@@ -3,7 +3,7 @@ z = 600
 function setup() {
   createCanvas(z, z);
 }
-
+// this class setsup the blueprint for the pattern
 class Rectanglez {
   constructor(x,y,XSideLength,YSideLength){
     this.x=x;
@@ -13,13 +13,16 @@ class Rectanglez {
    
     
   }
+  //takes care of the colors
   colorIt(){
     fill(random(255),random(255),random(255),50)
   }
+  // actually draws out the pattern
   drawRectangles(){
    
     this.sqrFill(this.x,this.y,this.XSideLength,this.YSideLength);
   }
+  // this fill each larger square as they are being visited one by one 
   sqrFill(x,y,xLength,yLength){
     if(xLength<5||yLength<5){return;}
      this.colorIt();
@@ -30,6 +33,7 @@ class Rectanglez {
     this.sqrFill(x+add,y+add,xLength-dec,yLength-dec)
   }
 }
+// the double for loops in this fucntion makes it so all of the larger squares are visited one by one 
 function getSquares(){
   let Xl = width/4;
   let Yl= width/4;
@@ -41,9 +45,7 @@ function getSquares(){
   }
   return squares;
 }
-// Code in this function is run once per frame. If it draws the same thing each
-// time, the sketch is a static image. If it draws something different on
-// different frames, the sketch is an animation.
+
 function draw() {
   background(220);
   let squares= getSquares();
