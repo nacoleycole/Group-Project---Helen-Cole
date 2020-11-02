@@ -45,7 +45,9 @@ class Rectanglez {
     if((x >= (this.x+this.sqrDiff) && x <= (this.x+this.XSideLength-this.sqrDiff)) && (y <= this.y + this.sqrDiff && y >= (this.y+this.YSideLength))){
         sound1.play();
        }  
+    else{
       
+    }
     }
   }
 
