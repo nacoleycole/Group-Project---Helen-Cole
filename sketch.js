@@ -1,7 +1,16 @@
 // Code in this function is run once, when the sketch is started.
 z = 600
+var squares;
+var sound1;
+
+function preload(){
+  soundFormats("mp3");
+  sound1 = loadSound("middlec.mp3");
+  
+}
 function setup() {
   createCanvas(z, z);
+ 
 }
 // this class setsup the blueprint for the pattern
 class Rectanglez {
@@ -10,8 +19,6 @@ class Rectanglez {
     this.y=y;
     this.XSideLength=XSideLength;
     this.YSideLength=YSideLength;
-   
-    
   }
   //takes care of the colors
   colorIt(){
@@ -32,23 +39,35 @@ class Rectanglez {
 
     this.sqrFill(x+add,y+add,xLength-dec,yLength-dec)
   }
+
+  getClicked(x, y){
+    if((x >= this.x && x <= (this.x+this.XSideLength)) && (y >= this.y && y <= (this.y+this.YSideLength))){
+       sound1.play();
+      //play sound
+    }
+  }
 }
 // the double for loops in this fucntion makes it so all of the larger squares are visited one by one 
 function getSquares(){
   let Xl = width/4;
   let Yl= width/4;
-  let squares=[];
+  squares=[];
   for (let i=0;i<4;i++){
     for(let j=0;j<4;j++){
       squares.push(new Rectanglez(i*Xl,j*Yl,Xl,Yl));
     }
   }
-  return squares;
+  
 }
 
 function draw() {
   background(220);
-  let squares= getSquares();
+  getSquares();
   squares.forEach(x => x.drawRectangles())
   noLoop();
+}
+
+
+function mousePressed(){
+  squares.forEach(x => x.getClicked(mouseX, mouseY))
 }
