@@ -31,7 +31,7 @@ class Rectanglez {
   }
   // this fill each larger square as they are being visited one by one 
   sqrFill(x,y,xLength,yLength){
-    if(xLength<5||yLength<5){return;}
+    if(xLength<1||yLength<10){return;}
      this.colorIt();
     rect(x,y,xLength,yLength);
     let dec = random (5,14);
@@ -42,14 +42,16 @@ class Rectanglez {
   }
 
   getClicked(x, y){
-    if((x >= (this.x+this.sqrDiff) && x <= (this.x+this.XSideLength-this.sqrDiff)) && (y <= this.y + this.sqrDiff && y >= (this.y+this.YSideLength))){
-        sound1.play();
-       }  
-    else{
-      
-    }
-    }
-  }
+    console.log(this.x, this.y, this.x+this.sqrDiff, this.x+this.XSideLength-this.sqrDiff, this.y +this.YSideLength - this.sqrDiff, this.y+this.sqrDiff)
+      if((x >= (this.x+this.sqrDiff) && x <= (this.x+this.XSideLength-this.sqrDiff)) && (y <= (this.y +this.YSideLength - this.sqrDiff)) && (y >= (this.y+this.sqrDiff))){
+      console.log('playing');
+      sound1.play();
+      this.sqrDiff = 0;
+      this.drawRectangles();
+        }  
+   
+      }
+   }
 
 // the double for loops in this fucntion makes it so all of the larger squares are visited one by one 
 function getSquares(){
@@ -73,5 +75,6 @@ function draw() {
 
 
 function mousePressed(){
+  console.log(mouseX, mouseY)
   squares.forEach(x => x.getClicked(mouseX, mouseY))
 }
