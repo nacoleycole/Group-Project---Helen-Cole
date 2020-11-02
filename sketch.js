@@ -4,13 +4,14 @@ var squares;
 var sound1;
 
 function preload(){
-  soundFormats("mp3");
-  sound1 = loadSound("middlec.mp3");
+  new p5.SoundFile("middlec.mp3")
+  soundFormats('mp3');
+  sound1 = loadSound('middlec.mp3');
   
 }
 function setup() {
   createCanvas(z, z);
- 
+  preload();
 }
 // this class setsup the blueprint for the pattern
 class Rectanglez {
