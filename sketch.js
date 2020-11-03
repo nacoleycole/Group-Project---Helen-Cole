@@ -11,7 +11,7 @@ var squares;
    sound1 = loadSound('middleCEdited.mp3');
  }
 function setup() {
-  createCanvas(z, z);
+  let canvas = createCanvas(z, z);
   
 }
 // this class setsup the blueprint for the pattern
@@ -30,12 +30,15 @@ class Rectanglez {
   // actually draws out the pattern
   drawRectangles(){
     this.sqrFill(this.x,this.y,this.XSideLength,this.YSideLength);
+    
   }
   // this fill each larger square as they are being visited one by one 
   sqrFill(x,y,xLength,yLength){
     if(xLength<20||yLength<20){return;}
      this.colorIt();
     rect(x,y,xLength,yLength);
+    noStroke();
+    // ellipse(x/2,y/2,xLength/2,yLength/2);
     let dec = random (5,30);
     let add = dec/2;
 
@@ -65,7 +68,7 @@ function getSquares(){
       squares.push(new Rectanglez(i*Xl,j*Yl,Xl,Yl));
     }
   }
-  
+  return squares;
 }
 
 function draw() {
