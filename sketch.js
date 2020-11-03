@@ -38,7 +38,7 @@ class Rectanglez {
      this.colorIt();
     rect(x,y,xLength,yLength);
     noStroke();
-    // ellipse(x/2,y/2,xLength/2,yLength/2);
+    // ellipse(x/2,y/2,xLength/2,yLength);
     let dec = random (5,30);
     let add = dec/2;
 
@@ -47,14 +47,15 @@ class Rectanglez {
   }
 
   getClicked(x, y){
-    console.log(this.x, this.y, this.x+this.sqrDiff, this.x+this.XSideLength-this.sqrDiff, this.y +this.YSideLength - this.sqrDiff, this.y+this.sqrDiff)
-      if((x >= (this.x+this.sqrDiff) && x <= (this.x+this.XSideLength-this.sqrDiff)) && (y <= (this.y +this.YSideLength - this.sqrDiff)) && (y >= (this.y+this.sqrDiff))){
+    console.log(x, y, this.x+this.sqrDiff, this.x+this.XSideLength-this.sqrDiff, this.y +this.YSideLength - this.sqrDiff, this.y+this.sqrDiff)
+      if((x >= (this.x+this.XSideLength-this.sqrDiff) && x <= (this.x+this.sqrDiff)) && (y <= (
+        this.y+this.sqrDiff)) && (y >= (this.y +this.YSideLength - this.sqrDiff))){
       console.log('playing');
       sound1.play();
       this.sqrDiff = 0;
       this.drawRectangles();
         }  
-   
+        this.x+this.sqrDiff
       }
    }
 
@@ -64,7 +65,7 @@ function getSquares(){
   let Yl= width/4;
   squares=[];
   for (let i=0;i<160;i++){
-    for(let j=0;j<8;j++){
+    for(let j=0;j<10;j++){
       squares.push(new Rectanglez(i*Xl,j*Yl,Xl,Yl));
     }
   }
@@ -72,8 +73,8 @@ function getSquares(){
 }
 
 function draw() {
-  background(220);
-  let squares= getSquares();
+  background(200);
+  squares= getSquares();
   squares.forEach(x => x.drawRectangles())
   // noLoop();
 }
@@ -81,7 +82,9 @@ function draw() {
 
 function mousePressed(){
   console.log(mouseX, mouseY)
+  squares.forEach(x => x.drawRectangles())
   squares.forEach(x => x.getClicked(mouseX, mouseY))
+
   if(isLooping())
   {
   noLoop();
