@@ -43,11 +43,19 @@ class Rectanglez {
 
   getClicked(x, y){
     console.log(this.x, this.y, this.x+this.sqrDiff, this.x+this.XSideLength-this.sqrDiff, this.y +this.YSideLength - this.sqrDiff, this.y+this.sqrDiff)
-      if((x >= (this.x+this.sqrDiff) && x <= (this.x+this.XSideLength-this.sqrDiff)) && (y <= (this.y +this.YSideLength - this.sqrDiff)) && (y >= (this.y+this.sqrDiff))){
+      //without this if statment the user could click anywhere on the canvas and it would make sound- with it sound only comes when clicked in the cente squares
+    if((x >= (this.x+this.sqrDiff) && x <= (this.x+this.XSideLength-this.sqrDiff)) && (y <= (this.y +this.YSideLength - this.sqrDiff)) && (y >= (this.y+this.sqrDiff))){
       console.log('playing');
       sound1.play();
+
+       /// I THINK this is where it would make sense to add your effects that you want to happen once its clicked 
+      //if you want the effects to only happen when clicked in the middle, then you can leave the if statment as i and
+      //just add your code right in this space 
+      // if you want it to have this effect when clikced in other places then you can add another while or if statment
+      // I also think that if you add your mouse x mouse y function as a method in this class, and call it at the appropriate 
+      //time that should work as well
       this.sqrDiff = 0;
-      this.drawRectangles();
+      this.drawRectangles(); // this is the line that makes the patter redraw after the user clicks
         }  
    
       }
