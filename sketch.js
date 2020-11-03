@@ -1,4 +1,6 @@
 // Code in this function is run once, when the sketch is started.
+let rectanglez;
+
 z = 600
 var squares;
  var sound1;
@@ -31,10 +33,10 @@ class Rectanglez {
   }
   // this fill each larger square as they are being visited one by one 
   sqrFill(x,y,xLength,yLength){
-    if(xLength<1||yLength<10){return;}
+    if(xLength<20||yLength<20){return;}
      this.colorIt();
     rect(x,y,xLength,yLength);
-    let dec = random (5,14);
+    let dec = random (5,30);
     let add = dec/2;
 
     this.sqrFill(x+add,y+add,xLength-dec,yLength-dec)
@@ -58,8 +60,8 @@ function getSquares(){
   let Xl = width/4;
   let Yl= width/4;
   squares=[];
-  for (let i=0;i<4;i++){
-    for(let j=0;j<4;j++){
+  for (let i=0;i<160;i++){
+    for(let j=0;j<8;j++){
       squares.push(new Rectanglez(i*Xl,j*Yl,Xl,Yl));
     }
   }
@@ -68,13 +70,21 @@ function getSquares(){
 
 function draw() {
   background(220);
-  getSquares();
+  let squares= getSquares();
   squares.forEach(x => x.drawRectangles())
-  noLoop();
+  // noLoop();
 }
 
 
 function mousePressed(){
   console.log(mouseX, mouseY)
   squares.forEach(x => x.getClicked(mouseX, mouseY))
+  if(isLooping())
+  {
+  noLoop();
+  }
+  else
+ {
+  loop();   
+   }
 }
