@@ -31,7 +31,7 @@ class Rectanglez {
   }
   // this fill each larger square as they are being visited one by one 
   sqrFill(x,y,xLength,yLength){
-    if(xLength<1||yLength<10){return;}
+    if(xLength<15||yLength<17){return;}
      this.colorIt();
     rect(x,y,xLength,yLength);
     let dec = random (5,14);
