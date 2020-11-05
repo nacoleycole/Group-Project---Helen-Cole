@@ -3,12 +3,17 @@ let rectanglez;
 
 z = 600
 var squares;
- var sound1;
+var soundz = [];
+ 
 
  function preload(){
 
    soundFormats('mp3');
-   sound1 = loadSound('middleCEdited.mp3');
+   soundz[0] = loadSound('PSound1.mp3');
+   soundz[1] = loadSound('PSound2.mp3');
+   soundz[2]= loadSound('PSound3.mp3');
+   soundz[3] = loadSound('PSound4.mp3');
+   soundz[4] = loadSound('PSound5.mp3');
  }
 function setup() {
   let canvas = createCanvas(z, z);
@@ -27,7 +32,7 @@ class Rectanglez {
     this.sqrDiff= 50; 
     this.variable = false
     this.rgb = [0,0,0]
-
+    // this.randomSound = soundz[random]
 
   }
   //takes care of the colors
@@ -59,8 +64,8 @@ class Rectanglez {
       //without this if statment the user could click anywhere on the canvas and it would make sound- with it sound only comes when clicked in the cente squares
     if((x >= (this.x+this.sqrDiff) && x <= (this.x+this.XSideLength-this.sqrDiff)) && (y <= (this.y +this.YSideLength - this.sqrDiff)) && (y >= (this.y+this.sqrDiff))){
       console.log('playing');
-      sound1.play();
-       // this is the line that makes the patter redraw after the user clicks
+      soundz[random(0,4)].play()
+ 
       this.clicked = !this.clicked;
       this.rgbChange();
         }
