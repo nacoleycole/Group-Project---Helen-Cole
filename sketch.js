@@ -37,7 +37,7 @@ class Rectanglez {
   }
   //takes care of the colors
   colorIt(){
-    fill(random(this.rgb[0], 255),random(this.rgb[1], 255),random(this.rgb[2], 255))
+    fill(random(this.rgb[0], 255),random(this.rgb[1], 255),random(this.rgb[2], 255), 100)
   }
   // actually draws out the pattern
   drawRectangles(){
@@ -50,8 +50,9 @@ class Rectanglez {
     if(xLength<17||yLength<17){return;}
     this.rgbChange(); 
      this.colorIt();
+     noStroke();
     rect(x,y,xLength,yLength);
-    noStroke();
+    
     let dec = random (5,15);
     let add = dec/2;
 
