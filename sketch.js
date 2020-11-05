@@ -85,6 +85,7 @@ class Rectanglez {
     }
   }
   
+  
 }
 
           
@@ -124,3 +125,4 @@ function mousePressed(){
 //   loop();   
 //    }
 }
+
