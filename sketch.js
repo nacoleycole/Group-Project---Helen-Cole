@@ -32,7 +32,7 @@ class Rectanglez {
     this.sqrDiff= 50; 
     this.variable = false
     this.rgb = [0,0,0]
-    // this.randomSound = soundz[random]
+    this.randomSound = soundz[random(0,4)]
 
   }
   //takes care of the colors
@@ -64,7 +64,10 @@ class Rectanglez {
       //without this if statment the user could click anywhere on the canvas and it would make sound- with it sound only comes when clicked in the cente squares
     if((x >= (this.x+this.sqrDiff) && x <= (this.x+this.XSideLength-this.sqrDiff)) && (y <= (this.y +this.YSideLength - this.sqrDiff)) && (y >= (this.y+this.sqrDiff))){
       console.log('playing');
-      soundz[random(0,4)].play()
+      console.log(this.randomSound);
+      let xxx = floor(random(0,4)); 
+      console.log(xxx);
+      soundz[xxx].play();
  
       this.clicked = !this.clicked;
       this.rgbChange();
