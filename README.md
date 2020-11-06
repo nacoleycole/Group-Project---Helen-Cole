@@ -1,9 +1,8 @@
-# p5.js template
+## Clicktilez
+* This code is a a colorful and visually stimulating program which are accompanied by calming piano harmony when the user presses the individual squares.
 
-This code is a “starter kit” for using [p5.js](https://p5js.org) with a sketch
-written as a [JavaScript
-module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
+## Instructions
+ * The square are activated upon mouse press and the small squares within changes color, making the illusion that it is scaling bigger and smaller in a very fast pace. 
+## Authors: 
+* Cole & Helen
 
-## License
-
-MIT
